@@ -11,6 +11,6 @@ public class CreateUserRequestProfile : Profile
     public CreateUserRequestProfile()
     {
         CreateMap<CreateUserRequest, CreateUserCommand>();
-        CreateMap<CreateBranchRequest, CreateBranchCommand>();
+      
     }
 }

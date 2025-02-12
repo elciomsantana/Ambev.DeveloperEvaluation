@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Ambev.DeveloperEvaluation.WebApi.Migrations
 {
     /// <inheritdoc />
-    public partial class addBranch : Migration
+    public partial class addProduct : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -23,6 +23,21 @@ namespace Ambev.DeveloperEvaluation.WebApi.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Branchs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Products",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Name = table.Column<string>(type: "text", nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UnitPrice = table.Column<decimal>(type: "numeric", nullable: false),
+                    InactivatedDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,6 +65,9 @@ namespace Ambev.DeveloperEvaluation.WebApi.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Branchs");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Users");

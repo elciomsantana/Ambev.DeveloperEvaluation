@@ -15,5 +15,6 @@ public class GetBranchProfile : Profile
     {
         CreateMap<Guid,GetBranchCommand>()
             .ConstructUsing(id => new GetBranchCommand(id));
+        CreateMap<GetBranchResult, GetBranchResponse>();
     }
 }

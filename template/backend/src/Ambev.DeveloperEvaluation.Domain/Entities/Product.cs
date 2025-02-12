@@ -9,35 +9,56 @@ using System.Threading.Tasks;
 
 namespace Ambev.DeveloperEvaluation.Domain.Entities
 {
-    public class Branch : BaseEntity
+    public class Product : BaseEntity
     {
+        /// <summary>
+        /// The unique identifier of the Prodduct
+        /// </summary>
         public Guid Id { get; set; }
+
+        /// <summary>
+        /// Name of the Product
+        /// </summary>
         public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Created date of the Product
+        /// </summary>
         public DateTime CreatedDate { get; private set; }
-        public DateTime? InactivatedDate { get; private set; }
+
+        /// <summary>
+        /// Product unit price
+        /// </summary>
+        public decimal UnitPrice { get; set; }
+
+        /// <summary>
+        /// Inactivated date of the Product
+        /// </summary>
+        public DateTime InactivatedDate { get; private set; }
 
         /// <summary>
         /// Constructor for the Product class
         /// </summary>
-        public Branch()
+        public Product()
         {
-            Id = Guid.NewGuid();
+            Guid.NewGuid();
             CreatedDate = DateTime.UtcNow;
         }
-         
+
         /// <summary>
         /// Constructor with parameters to simplify object creation
         /// </summary>
         /// <param name="name">Name of the product</param>
         /// <param name="unitPrice">Unit price of the product</param>
-        public Branch(string name) : this()
+        public Product(string name, decimal unitPrice) : this()
         {
             Name = name;
-
+            UnitPrice = unitPrice;
         }
 
+
         /// <summary>
-        /// Performs validation of the Branch entity using the BranchValidator rules.
+        /// Performs validation of the Product entity using the ProductValidator rules.
         /// </summary>
         /// <returns>
         /// A <see cref="ValidationResultDetail"/> containing:
@@ -47,11 +68,12 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <remarks>
         /// <listheader>The validation includes checking:</listheader>
         /// <list type="bullet">Name length</list>
+        /// <list type="bullet">UnitPrice minimum value</list>
         /// 
         /// </remarks>
         public ValidationResultDetail Validate()
         {
-            var validator = new BranchValidator();
+            var validator = new ProductValidator();
             var result = validator.Validate(this);
             return new ValidationResultDetail
             {
@@ -61,7 +83,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         }
 
         /// <summary>
-        /// Inactive the Branch.
+        /// Inactive the Product.
         /// Changes the InactivatedDate to now.
         /// </summary>
         public void Inactive()
