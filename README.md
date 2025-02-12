@@ -1,4 +1,4 @@
-# Developer Evaluation Project
+﻿# Developer Evaluation Project
 
 `READ CAREFULLY`
 
@@ -84,3 +84,51 @@ This section includes links to the detailed documentation for the different API 
 This section describes the overall structure and organization of the project files and directories. 
 
 See [Project Structure](/.doc/project-structure.md)
+
+
+# Running the Project
+
+## 1. Setup
+
+### 1.1. Install Docker Desktop  
+[Download and install Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
+
+### 1.2. Install .NET 8.0  
+[Download and install .NET 8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+
+### 1.3. Clone the repository  
+Clone the current repository (Ambev.DeveloperEvaluation):
+```sh
+git clone https://github.com/your-repository/Ambev.DeveloperEvaluation.git
+cd Ambev.DeveloperEvaluation
+```
+
+### 1.4. Adjust the `docker-compose.override.yml` file as needed.
+
+### 1.5. Start the containers  
+Run the following command to build and start the containers:
+```sh
+docker-compose up --build
+```
+
+### 1.6. Update the database  
+Run the following command to apply migrations:
+```sh
+dotnet ef database update
+```
+
+### 1.7. Run the project as a Container (DockerFile).
+
+---
+
+## 2. Running Tests
+
+### 2.1. Follow steps **1.1 to 1.3**.
+
+### 2.2. Run tests  
+Go to **Tests** > **Run All Tests** in your IDE.
+
+---
+
+🤓 Happy coding! 🚀
+
