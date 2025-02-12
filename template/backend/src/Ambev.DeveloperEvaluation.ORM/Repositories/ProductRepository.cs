@@ -27,7 +27,7 @@ public class ProductRepository : IProductRepository
     /// <param name="product">The Product to create</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created Product</returns>
- 
+    [Authorize(Roles = "Manager,Admin")]
     public async Task<Product> CreateAsync(Product product, CancellationToken cancellationToken = default)
     {
         await _context.Products.AddAsync(product, cancellationToken);
