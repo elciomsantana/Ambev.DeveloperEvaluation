@@ -1,5 +1,6 @@
 ﻿using Ambev.DeveloperEvaluation.Domain.Entities;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Ambev.DeveloperEvaluation.ORM.Repositories;
@@ -26,6 +27,7 @@ public class ProductRepository : IProductRepository
     /// <param name="product">The Product to create</param>
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created Product</returns>
+ 
     public async Task<Product> CreateAsync(Product product, CancellationToken cancellationToken = default)
     {
         await _context.Products.AddAsync(product, cancellationToken);

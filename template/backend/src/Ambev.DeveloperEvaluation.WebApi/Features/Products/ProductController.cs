@@ -6,6 +6,7 @@ using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProduct;
 using Ambev.DeveloperEvaluation.Application.Products.CreateProduct;
 using Ambev.DeveloperEvaluation.Application.Products.GetProduct;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Products;
@@ -14,6 +15,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Products;
 /// Controller for managing Product operations
 /// </summary>
 [ApiController]
+[Authorize]
 [Route("api/[controller]")]
 public class ProductController : BaseController
 {
@@ -38,6 +40,7 @@ public class ProductController : BaseController
     /// <param name="cancellationToken">Cancellation token</param>
     /// <returns>The created Product details</returns>
     [HttpPost]
+    [Authorize(Roles = "Manager,Admin")]
     [ProducesResponseType(typeof(ApiResponseWithData<CreateProductResponse>), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateProduct([FromBody] CreateProductRequest request, CancellationToken cancellationToken)

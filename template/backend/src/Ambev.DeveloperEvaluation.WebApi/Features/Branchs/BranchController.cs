@@ -41,7 +41,7 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Branchs
         [HttpPost]
         [ProducesResponseType(typeof(ApiResponseWithData<CreateBranchResponse>), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ApiResponse), StatusCodes.Status400BadRequest)]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Manager,Admin")]
         public async Task<IActionResult> CreateBranch([FromBody] CreateBranchRequest request, CancellationToken cancellationToken)
         {
             var validator = new CreateBranchRequestValidator();
