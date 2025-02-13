@@ -9,6 +9,7 @@ using Ambev.DeveloperEvaluation.Application.Users.CreateUser;
 using Ambev.DeveloperEvaluation.Application.Users.GetUser;
 using Ambev.DeveloperEvaluation.Application.Users.DeleteUser;
 using Microsoft.AspNetCore.Authorization;
+using Ambev.DeveloperEvaluation.Application.Branchs.InactiveBranch;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Users;
 

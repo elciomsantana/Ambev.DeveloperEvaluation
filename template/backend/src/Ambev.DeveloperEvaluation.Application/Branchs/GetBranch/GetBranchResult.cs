@@ -25,7 +25,7 @@ public class GetBranchResult
     /// <summary>
     /// Inactivated  date of the Branch
     /// </summary>
-    public DateTime? InactivatedDate { get; private set; }
+    public DateTime? InactivatedDate { get;  set; }
 
 
 

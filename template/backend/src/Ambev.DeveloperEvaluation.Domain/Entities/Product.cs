@@ -34,7 +34,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Inactivated date of the Product
         /// </summary>
-        public DateTime InactivatedDate { get; private set; }
+        public DateTime? InactivatedDate { get; private set; }
 
         /// <summary>
         /// Constructor for the Product class

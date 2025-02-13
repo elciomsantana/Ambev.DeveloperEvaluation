@@ -46,4 +46,34 @@ public class ProductRepository : IProductRepository
         return await _context.Products.FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
     }
 
+    /// <summary>
+    /// Retrieves a Product by their unique identifier
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>The Product if found, null otherwise</returns>
+    public async Task<Product[]> ListAsync(CancellationToken cancellationToken = default)
+    {
+        var list = await _context.Products.Where(o => !o.InactivatedDate.HasValue).ToListAsync(cancellationToken);
+        return list.ToArray();
+    }
+
+    /// <summary>
+    /// Inactive a Product from the database
+    /// </summary>
+    /// <param name="id">The unique identifier of the Product to inactive</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+    /// <returns>True if the Product was inactivated, false if not found</returns>
+    public async Task<bool> InactiveAsync(Guid id, CancellationToken cancellationToken = default)
+    {
+        var product = await GetByIdAsync(id, cancellationToken);
+        if (product == null)
+            return false;
+
+        product.Inactive();
+        await _context.SaveChangesAsync(cancellationToken);
+        return true;
+    }
+
+
+
 }

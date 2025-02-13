@@ -27,5 +27,10 @@ public class GetProductResult
     /// </summary>
     public decimal UnitPrice { get; set; }
 
+    /// <summary>
+    /// Inactivated date of the Product
+    /// </summary>
+    public DateTime? InactivatedDate { get;  set; }
+
 
 }
