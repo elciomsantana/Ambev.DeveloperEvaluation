@@ -7,9 +7,12 @@
 
   <ItemGroup>
     <Folder Include="Enums\" />
-    <Folder Include="Exceptions\" />
     <Folder Include="Events\" />
     <Folder Include="ValueObjects\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Model\SaleModel.cs" />
   </ItemGroup>
 
   <ItemGroup>

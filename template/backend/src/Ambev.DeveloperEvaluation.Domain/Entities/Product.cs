@@ -14,12 +14,12 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// The unique identifier of the Prodduct
         /// </summary>
-        public Guid Id { get; set; }
+        public Guid Id { get; private set; }
 
         /// <summary>
         /// Name of the Product
         /// </summary>
-        public string Name { get; set; } = string.Empty;
+        public string Name { get; private set; } = string.Empty;
 
         /// <summary>
         /// Created date of the Product
@@ -29,7 +29,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         /// <summary>
         /// Product unit price
         /// </summary>
-        public decimal UnitPrice { get; set; }
+        public decimal UnitPrice { get; private set; }
 
         /// <summary>
         /// Inactivated date of the Product

@@ -11,8 +11,8 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
 {
     public class Branch : BaseEntity
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; } = string.Empty;
+        public Guid Id { get; private set; }
+        public string Name { get; private set; } = string.Empty;
         public DateTime CreatedDate { get; private set; }
         public DateTime? InactivatedDate { get; private set; }
 
